@@ -1,0 +1,3 @@
+[submodule "libs/gfx"]
+	path = libs/gfx
+	url = git@github.com:beeryt/gfx.git
