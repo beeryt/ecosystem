@@ -1,3 +1,6 @@
 [submodule "libs/gfx"]
 	path = libs/gfx
 	url = git@github.com:beeryt/gfx.git
+[submodule "libs/spdlog"]
+	path = libs/spdlog
+	url = git@github.com:gabime/spdlog.git
