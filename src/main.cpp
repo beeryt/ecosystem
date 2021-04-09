@@ -4,7 +4,6 @@
 #include "version.h"
 #include "random.h"
 
-#include <glad/gl.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <spdlog/spdlog.h>
@@ -35,7 +34,7 @@ class Game {
 int main()
 {
   //spdlog::set_level(spdlog::level::debug);
-  spdlog::trace("{}", __PRETTY_FUNCTION__);
+  spdlog::trace("{}", __FUNCTION__);
 
   auto title = "Ecosystem " VERSION_STRING;
   auto win = Graphics::CreateWindow(WINX, WINY, title);
@@ -52,7 +51,7 @@ int main()
     start_time += elapsed;
 
     Graphics::HandleEvents(0.5);
-    glClear(GL_COLOR_BUFFER_BIT);
+    win.Clear();
     game.update(dt);
     game.render();
     win.SwapBuffers();
