@@ -42,7 +42,7 @@ int main()
 
   Game game;
 
-  while (!win.ShouldClose())
+  while (!win->ShouldClose())
   {
     using Clock = std::chrono::high_resolution_clock;
     static auto start_time = Clock::now();
@@ -51,10 +51,10 @@ int main()
     start_time += elapsed;
 
     Graphics::HandleEvents(0.5);
-    win.Clear();
+    win->Clear();
     game.update(dt);
     game.render();
-    win.SwapBuffers();
+    win->SwapBuffers();
   }
 }
 
