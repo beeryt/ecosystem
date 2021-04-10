@@ -8,15 +8,26 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(libs)
 
-add_executable(main
+set(MAIN_SOURCES
   src/main.cpp
   src/camera.cpp
   src/grid.cpp
   src/random.cpp
   src/circlemesh.cpp
 )
-target_include_directories(main PUBLIC include)
-target_link_libraries(main PRIVATE gfx glm::glm spdlog::spdlog)
+
+set(MAIN_LIBS
+  glm::glm
+  spdlog::spdlog
+)
+
+add_executable(main-sdl ${MAIN_SOURCES})
+target_include_directories(main-sdl PRIVATE include)
+target_link_libraries(main-sdl PRIVATE gfx-sdl ${MAIN_LIBS})
+
+add_executable(main-glfw ${MAIN_SOURCES})
+target_include_directories(main-glfw PRIVATE include)
+target_link_libraries(main-glfw PRIVATE gfx-glfw ${MAIN_LIBS})
 
 option(BUILD_DOC "Build documentation" OFF)
 find_package(Doxygen)
